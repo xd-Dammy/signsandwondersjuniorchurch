@@ -14,7 +14,7 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Unique ID", name: "id", widget: "id" }
+      - { label: "Unique ID", name: "id", widget: "string" }
       - { label: "Program Theme / Title", name: "title", widget: "string" }
       - { label: "Date of Event", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
       - { label: "Brief Description", name: "description", widget: "text" }
