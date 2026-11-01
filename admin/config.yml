@@ -1,0 +1,61 @@
+# CHANGE THIS to your GitHub username and repository name, e.g. gracechurch/church-gallery
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/YOUR-REPOSITORY
+  branch: main
+
+# Where uploaded photos are saved (inside your repository)
+media_folder: "images/uploads"
+public_folder: "images/uploads"
+
+collections:
+  - name: gallery
+    label: Website
+    files:
+      - name: events
+        label: Events and photos
+        file: content/events.json
+        fields:
+          - label: Events
+            name: events
+            widget: list
+            label_singular: Event
+            summary: "{{title}} ({{status}})"
+            fields:
+              - {label: Title, name: title, widget: string}
+              - label: This event is
+                name: status
+                widget: select
+                options:
+                  - {label: "Past (already happened)", value: past}
+                  - {label: "Upcoming", value: up}
+              - {label: "Category (e.g. Youth, Outreach, Sunday Service)", name: category, widget: string}
+              - {label: Date, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD"}
+              - {label: "Time (upcoming events, e.g. 9:00 AM)", name: time, widget: string, required: false}
+              - {label: "Venue (upcoming events)", name: venue, widget: string, required: false}
+              - {label: Description, name: desc, widget: text}
+              - {label: "Link (optional: registration, WhatsApp or map link)", name: link, widget: string, required: false}
+              - label: Photos
+                name: images
+                widget: list
+                required: false
+                label_singular: Photo
+                hint: "The first photo is the cover. Add as many as you like. Use the red delete button on a photo to remove it."
+                field: {label: Photo, name: image, widget: image}
+      - name: site
+        label: Church details
+        file: content/site.json
+        fields:
+          - {label: Church name, name: name, widget: string}
+          - {label: "Logo (optional)", name: logo, widget: image, required: false}
+          - {label: Short description, name: tagline, widget: text}
+          - {label: Email, name: email, widget: string}
+          - {label: Phone, name: phone, widget: string}
+          - {label: Address, name: address, widget: string}
+          - label: Menu links
+            name: menu
+            widget: list
+            label_singular: Link
+            fields:
+              - {label: Name, name: label, widget: string}
+              - {label: "Web address (or # for none)", name: href, widget: string}
