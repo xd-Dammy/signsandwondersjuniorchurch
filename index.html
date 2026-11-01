@@ -1,64 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Event Gallery</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RCCG Signs & Wonders Juniors Church Gallery</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-<header class="top">
- <div class="wrap">
-  <div class="nav">
-   <a class="brand" href="index.html"><span class="logo" id="logo"></span><span id="siteName"></span></a>
-   <nav id="menu" aria-label="Main"></nav>
-  </div>
-  <div class="hero">
-   <h1>Event Gallery</h1>
-   <p id="tagline"></p>
-   <div class="next" id="next"></div>
-  </div>
- </div>
-</header>
+    <header>
+        <!-- Place your logo.png inside images/uploads/ folder -->
+        <img src="images/uploads/logo.png" alt="RCCG Signs and Wonders Junior Affairs Logo" class="church-logo" onerror="this.style.display='none'; console.log('Place your logo.png inside images/uploads/')">
+        <h1>RCCG Signs & Wonders Juniors Church</h1>
+        <h3>Junior Media Gallery Platform</h3>
+    </header>
 
-<main class="wrap">
- <div class="bar">
-  <div class="seg" role="group" aria-label="Event timing">
-   <button data-v="past" aria-pressed="true">Past events</button>
-   <button data-v="up" aria-pressed="false">Upcoming</button>
-  </div>
-  <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
- </div>
- <div class="meta">
-  <span id="count"></span>
-  <label>Sort <select id="sort"><option value="new">Newest first</option><option value="old">Oldest first</option></select></label>
- </div>
- <section class="grid" id="grid" aria-live="polite"></section>
-</main>
+    <main>
+        <section id="gallery-container">
+            <div class="loading-state">Initializing gallery pipeline...</div>
+        </section>
+    </main>
 
-<dialog id="dlg" aria-labelledby="dt">
- <div class="dh"><div><h2 id="dt"></h2><div class="row" id="dm"></div></div><button class="x" id="close" aria-label="Close album">✕</button></div>
- <div class="photos" id="photos"></div>
-</dialog>
+    <!-- Photo Lightbox Modal View layer -->
+    <div id="lightbox-modal" class="modal" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <img class="modal-content" id="modal-img">
+        <div id="caption"></div>
+        <a id="download-link" href="#" download class="download-btn" onclick="event.stopPropagation();">⬇ Download Image</a>
+    </div>
 
-<dialog id="lb" class="lb" aria-label="Photo viewer">
- <button class="x lbx" id="lbClose" aria-label="Close photo">✕</button>
- <button class="nv prev" id="prev" aria-label="Previous photo">‹</button>
- <img id="lbImg" alt="">
- <button class="nv next-b" id="nextB" aria-label="Next photo">›</button>
- <div class="cap" id="cap"></div>
-</dialog>
-
-<footer>
- <div class="wrap">
-  <div class="fg" id="foot"></div>
-  <div class="copy" id="copy"></div>
- </div>
-</footer>
-
-
-<script src="js/app.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
 </body>
 </html>
