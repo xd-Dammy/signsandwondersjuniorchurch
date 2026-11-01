@@ -1,0 +1,16 @@
+{
+  "name": "RCCG SIGNS AND WONDERS PARISH",
+  "logo": "images/logo/logo.png",
+  "tagline": "Moments of worship, fellowship and service from our church family, plus what is coming next.",
+  "email": "",
+  "phone": "+234 000 000 0000",
+  "address": "Church bustop, Gberigbe, Ikorodu, Lagos State",
+  "menu": [
+    {"label": "Home", "href": "#"},
+    {"label": "About", "href": ""},
+    {"label": "Sermons", "href": "#"},
+    {"label": "Gallery", "href": "index.html"},
+    {"label": "Give", "href": ""},
+    {"label": "Contact", "href": ""}
+  ]
+}
