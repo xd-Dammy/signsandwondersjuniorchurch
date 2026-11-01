@@ -1,0 +1,6 @@
+{
+  "events": [
+    {"status": "up", "category": "Conference", "date": "2026-12-12", "time": "9:00 AM", "venue": "Main Sanctuary", "title": "Annual Thanksgiving Conference", "desc": "A day of worship, teaching and testimonies. Everyone is welcome.", "images": [], "link": ""},
+    {"status": "past", "category": "Sunday Service", "date": "2026-10-18", "time": "", "venue": "", "title": "Harvest Thanksgiving Sunday (sample, delete me)", "desc": "Photos from our harvest thanksgiving service. This is a sample event. Open the admin page to edit or delete it.", "images": [], "link": ""}
+  ]
+}
